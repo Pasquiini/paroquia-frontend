@@ -1,0 +1,49 @@
+<main>
+  <section class="banner">
+    <div class="banner-conteudo">
+      <h1>Bem-vindo à Paróquia!</h1>
+      <p>Uma casa de oração, fé e comunidade. Junte-se a nós.</p>
+      <a routerLink="/sobre" class="btn-principal">Saiba Mais</a>
+    </div>
+  </section>
+
+  <section class="secao-noticias">
+    <h2>Últimas Notícias e Avisos</h2>
+    <div class="noticias-grid">
+      <div *ngFor="let noticia of noticias" class="noticia-card">
+        <img [src]="noticia.imagem" [alt]="noticia.titulo" class="card-imagem">
+        <div class="card-conteudo">
+          <h3 class="card-titulo">{{ noticia.titulo }}</h3>
+          <p class="card-data">{{ noticia.data | date:'mediumDate' }}</p>
+          <p class="card-resumo">{{ noticia.resumo }}</p>
+          <a routerLink="/noticias" class="card-link">Ler mais</a>
+        </div>
+      </div>
+    </div>
+    <div class="ver-mais">
+      <a routerLink="/noticias" class="btn-secundario">Ver todas as notícias</a>
+    </div>
+  </section>
+
+  <section class="secao-agenda">
+    <h2>Próximos Eventos</h2>
+    <div class="agenda-list">
+      <div *ngFor="let evento of eventos" class="evento-card">
+        <div class="evento-data">
+          <span class="dia">{{ evento.data | date:'d' }}</span>
+          <span class="mes">{{ evento.data | date:'MMM' | uppercase }}</span>
+        </div>
+        <div class="evento-conteudo">
+          <h3 class="evento-titulo">{{ evento.titulo }}</h3>
+          <p class="evento-detalhes">
+            <span class="horario">{{ evento.horario }}</span> -
+            <span class="local">{{ evento.local }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="ver-mais">
+      <a routerLink="/agenda" class="btn-secundario">Ver agenda completa</a>
+    </div>
+  </section>
+</main>

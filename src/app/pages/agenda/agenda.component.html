@@ -1,0 +1,20 @@
+<section class="agenda-container">
+  <h2>Agenda de Missas e Eventos</h2>
+
+  <div class="agenda-list">
+    <div *ngFor="let evento of eventos" class="evento-card">
+      <div class="evento-data">
+        <span class="dia">{{ evento.data | date:'d' }}</span>
+        <span class="mes">{{ evento.data | date:'MMM' | uppercase }}</span>
+      </div>
+      <div class="evento-conteudo">
+        <h3 class="evento-titulo">{{ evento.titulo }}</h3>
+        <p class="evento-detalhes">
+          <span class="horario">{{ evento.horario }}</span> -
+          <span class="local">{{ evento.local }}</span>
+        </p>
+        <p class="evento-descricao">{{ evento.descricao }}</p>
+      </div>
+    </div>
+  </div>
+</section>

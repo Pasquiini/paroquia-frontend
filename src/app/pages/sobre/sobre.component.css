@@ -1,0 +1,52 @@
+/* src/app/pages/sobre/sobre.component.css */
+
+.sobre-container {
+  padding: 2rem;
+  background-color: var(--cor-fundo);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--cor-primaria);
+  font-size: 2rem;
+}
+
+.sobre-conteudo {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sobre-imagem {
+  flex: 1;
+  min-width: 300px;
+}
+
+.sobre-imagem img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.sobre-texto {
+  flex: 2;
+}
+
+.sobre-texto p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--cor-texto);
+}
+
+@media (max-width: 768px) {
+  .sobre-conteudo {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,88 @@
+/* src/app/pages/contato/contato.component.css */
+
+.contato-container {
+  padding: 2rem;
+  background-color: var(--cor-fundo);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--cor-primaria);
+  font-size: 2rem;
+}
+
+.contato-conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.informacoes, .formulario {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+
+.informacoes h3, .formulario h3 {
+  color: var(--cor-secundaria);
+  margin-bottom: 1rem;
+}
+
+.informacoes ul {
+  list-style: none;
+  padding: 0;
+}
+
+.informacoes li {
+  margin-bottom: 0.5rem;
+  color: var(--cor-texto);
+  font-size: 1rem;
+}
+
+.contato-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.contato-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--cor-texto);
+  font-weight: bold;
+}
+
+.contato-form input,
+.contato-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Garante que o padding não afeta a largura total */
+}
+
+.contato-form textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--cor-destaque);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #c4a12f; /* Variação do dourado */
+}

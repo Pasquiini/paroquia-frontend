@@ -1,0 +1,26 @@
+<header class="navbar">
+  <div class="navbar-brand">
+    <a routerLink="/">
+      <img src="/logo.jpg" alt="Logo da Paróquia" class="logo">
+      <h1>Paróquia São João Batista</h1>
+    </a>
+  </div>
+  <nav class="navbar-menu" [ngClass]="{'menu-aberto': menuAberto}">
+    <a routerLink="/noticias" class="menu-item" (click)="toggleMenu()">Notícias</a>
+    <a routerLink="/agenda" class="menu-item" (click)="toggleMenu()">Agenda</a>
+    <a routerLink="/galeria" class="menu-item" (click)="toggleMenu()">Galeria</a>
+    <a routerLink="/sobre" class="menu-item" (click)="toggleMenu()">Sobre</a>
+    <a routerLink="/contato" class="menu-item" (click)="toggleMenu()">Contato</a>
+  </nav>
+  <button class="menu-toggle" aria-label="Abrir menu" (click)="toggleMenu()">
+    ☰
+  </button>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2025 Paróquia. Todos os direitos reservados.</p>
+</footer>

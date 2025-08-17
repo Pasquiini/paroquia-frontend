@@ -1,0 +1,9 @@
+/* Você pode adicionar estilos globais a este arquivo, e também importar outros arquivos de estilo */
+
+:root {
+  --cor-primaria: #8d6e63;
+  --cor-secundaria: #c8b99c;
+  --cor-texto: #333333;
+  --cor-destaque: #d4af37;
+  --cor-fundo: #f0f0f0;
+}

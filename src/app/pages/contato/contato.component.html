@@ -1,0 +1,42 @@
+<section class="contato-container">
+  <h2>Fale Conosco</h2>
+  <div class="contato-conteudo">
+    <div class="informacoes">
+      <h3>Informações da Paróquia</h3>
+      <p>Se preferir, entre em contato diretamente:</p>
+      <ul>
+        <li><strong>Endereço:</strong> {{ contato.endereco }}</li>
+        <li><strong>Telefone:</strong> {{ contato.telefone }}</li>
+        <li><strong>E-mail:</strong> {{ contato.email }}</li>
+        <li><strong>Horário de Funcionamento:</strong> {{ contato.horario }}</li>
+      </ul>
+    </div>
+
+    <div class="formulario">
+      <h3>Envie uma Mensagem</h3>
+      <form class="contato-form">
+        <div class="form-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="assunto">Assunto</label>
+          <input type="text" id="assunto" name="assunto" required>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+      </form>
+    </div>
+  </div>
+</section>

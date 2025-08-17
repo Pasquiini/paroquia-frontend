@@ -1,0 +1,146 @@
+/* src/app/pages/home/home.component.css */
+
+/* Estilos do Banner */
+.banner {
+ background-image: linear-gradient(
+    45deg,
+    var(--cor-primaria),
+    var(--cor-secundaria)
+  );
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-conteudo {
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.banner-conteudo h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.banner-conteudo p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.btn-principal {
+  background-color: var(--cor-destaque);
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-principal:hover {
+  background-color: #c4a12f;
+}
+
+/* Estilos das Seções */
+.secao-noticias, .secao-agenda {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.secao-noticias {
+  background-color: var(--cor-fundo);
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 2rem;
+}
+
+/* Estilos de Notícias (reutilizados) */
+.noticias-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: center;
+}
+.noticia-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.noticia-card:hover { transform: translateY(-5px); }
+.card-imagem { width: 100%; height: 200px; object-fit: cover; }
+.card-conteudo { padding: 1.5rem; }
+.card-titulo { font-size: 1.25rem; color: var(--cor-primaria); margin: 0 0 0.5rem; }
+.card-data { font-size: 0.8rem; color: #999; margin-bottom: 1rem; }
+.card-resumo { font-size: 1rem; color: var(--cor-texto); line-height: 1.5; }
+.card-link { display: inline-block; margin-top: 1rem; color: var(--cor-destaque); text-decoration: none; font-weight: bold; }
+.card-link:hover { text-decoration: underline; }
+
+/* Estilos da Agenda (reutilizados) */
+.secao-agenda {
+  background-color: var(--cor-secundaria);
+  color: #fff;
+}
+.secao-agenda h2 {
+  color: #fff;
+}
+.agenda-list {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.evento-card {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--cor-texto);
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.evento-card:hover { transform: scale(1.05); }
+.evento-data { background-color: var(--cor-primaria); color: #fff; padding: 0.5rem 1rem; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.evento-data .dia { font-size: 1.5rem; line-height: 1; }
+.evento-data .mes { font-size: 0.8rem; text-transform: uppercase; }
+.evento-conteudo { padding-left: 1rem; }
+.evento-titulo { font-size: 1.25rem; color: var(--cor-primaria); margin: 0 0 0.5rem; }
+.evento-detalhes { font-size: 0.9rem; color: #666; margin: 0; }
+
+.btn-secundario {
+  display: inline-block;
+  margin-top: 2rem;
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--cor-primaria);
+  border-radius: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secundario:hover {
+  background-color: var(--cor-primaria);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .banner-conteudo h1 { font-size: 2.5rem; }
+  .banner-conteudo p { font-size: 1.2rem; }
+  .secao-noticias, .secao-agenda { padding: 2rem 1rem; }
+  .noticias-grid { grid-template-columns: 1fr; }
+  .evento-card { flex-direction: column; text-align: center; }
+  .evento-data { flex-direction: row; justify-content: center; }
+  .evento-conteudo { padding-left: 0; padding-top: 1rem; }
+}

@@ -1,0 +1,14 @@
+<section class="noticias-container">
+  <h2>Últimas Notícias e Avisos</h2>
+  <div class="noticia-card-list">
+    <div *ngFor="let noticia of noticias" class="noticia-card">
+      <img [src]="noticia.imagem" [alt]="noticia.titulo" class="card-image">
+      <div class="card-content">
+        <h3 class="card-title">{{ noticia.titulo }}</h3>
+        <p class="card-date">{{ noticia.data }}</p>
+        <p class="card-resumo">{{ noticia.resumo }}</p>
+        <a href="#" class="card-link">Ler mais</a>
+      </div>
+    </div>
+  </div>
+</section>

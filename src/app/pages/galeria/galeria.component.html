@@ -1,0 +1,15 @@
+<section class="galeria-container">
+  <h2>Galeria de Fotos e Vídeos</h2>
+
+  <div class="galeria-grid">
+    <div *ngFor="let item of itensGaleria" class="galeria-item">
+      <img *ngIf="item.tipo === 'imagem'" [src]="item.url" [alt]="item.titulo" class="item-media">
+
+      <iframe *ngIf="item.tipo === 'video'" [src]="item.url" frameborder="0" allowfullscreen class="item-media"></iframe>
+
+      <div class="item-overlay">
+        <span class="item-title">{{ item.titulo }}</span>
+      </div>
+    </div>
+  </div>
+</section>
