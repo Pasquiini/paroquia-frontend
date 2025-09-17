@@ -1,49 +1,227 @@
-<main>
-  <section class="banner">
-    <div class="banner-conteudo">
-      <h1>Bem-vindo à Paróquia!</h1>
-      <p>Uma casa de oração, fé e comunidade. Junte-se a nós.</p>
-      <a routerLink="/sobre" class="btn-principal">Saiba Mais</a>
+<!-- Link "pular para o conteúdo" para acessibilidade -->
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<main id="conteudo">
+  <!-- HERO / BANNER -->
+  <section class="hero" role="banner" aria-label="Apresentação da Paróquia">
+    <div class="hero-overlay"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-title">Bem-vindo à Paróquia</h1>
+        <p class="hero-subtitle">
+          Uma casa de oração, fé e comunidade. Junte-se a nós.
+        </p>
+        <div class="hero-actions">
+          <a routerLink="/sobre" class="btn btn-primary">Saiba mais</a>
+          <a routerLink="/agenda" class="btn btn-ghost">Ver agenda</a>
+        </div>
+
+        <!-- Ações rápidas -->
+        <div class="quick-actions" aria-label="Ações rápidas">
+          <a routerLink="/missoes" class="quick-card" aria-label="Horários das Missas">
+            <i class="bi bi-calendar2-week"></i>
+            <span>Horários das Missas</span>
+          </a>
+          <a routerLink="/oracao" class="quick-card" aria-label="Pedido de Oração">
+            <i class="bi bi-heart"></i>
+            <span>Pedido de Oração</span>
+          </a>
+          <a routerLink="/doar" class="quick-card" aria-label="Doações">
+            <i class="bi bi-hand-heart"></i>
+            <span>Doações</span>
+          </a>
+        </div>
+      </div>
+
+      <picture class="hero-image" aria-hidden="true">
+        <img
+          src="assets/hero-paroquia.jpg"
+          alt=""
+          loading="lazy"
+        />
+      </picture>
     </div>
   </section>
 
-  <section class="secao-noticias">
-    <h2>Últimas Notícias e Avisos</h2>
-    <div class="noticias-grid">
-      <div *ngFor="let noticia of noticias" class="noticia-card">
-        <img [src]="noticia.imagem" [alt]="noticia.titulo" class="card-imagem">
-        <div class="card-conteudo">
-          <h3 class="card-titulo">{{ noticia.titulo }}</h3>
-          <p class="card-data">{{ noticia.data | date:'mediumDate' }}</p>
-          <p class="card-resumo">{{ noticia.resumo }}</p>
-          <a routerLink="/noticias" class="card-link">Ler mais</a>
-        </div>
+  <!-- NOTÍCIAS -->
+  <section class="section" aria-labelledby="tit-noticias">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="tit-noticias">Últimas notícias e avisos</h2>
+        <a routerLink="/noticias" class="link-more">Ver todas</a>
       </div>
-    </div>
-    <div class="ver-mais">
-      <a routerLink="/noticias" class="btn-secundario">Ver todas as notícias</a>
+
+      <div class="news-grid" aria-live="polite">
+        <article *ngFor="let noticia of noticias" class="card card-news">
+          <img
+            [src]="noticia.imagem"
+            [alt]="noticia.titulo"
+            class="card-media"
+            loading="lazy"
+          />
+          <div class="card-body">
+            <h3 class="card-title">{{ noticia.titulo }}</h3>
+            <p class="card-meta">{{ noticia.data | date:'mediumDate' }}</p>
+            <p class="card-text">{{ noticia.resumo }}</p>
+            <a [routerLink]="['/noticias']" class="card-link">Ler mais</a>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section class="secao-agenda">
-    <h2>Próximos Eventos</h2>
-    <div class="agenda-list">
-      <div *ngFor="let evento of eventos" class="evento-card">
-        <div class="evento-data">
-          <span class="dia">{{ evento.data | date:'d' }}</span>
-          <span class="mes">{{ evento.data | date:'MMM' | uppercase }}</span>
+  <!-- AGENDA / PRÓXIMOS EVENTOS -->
+  <section class="section section-tonal" aria-labelledby="tit-agenda">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="tit-agenda">Próximos eventos</h2>
+        <a routerLink="/agenda" class="link-more">Agenda completa</a>
+      </div>
+
+      <div class="events-list">
+        <article *ngFor="let evento of eventos" class="event-card">
+          <div class="event-date">
+            <span class="day">{{ evento.data | date:'d' }}</span>
+            <span class="mon">{{ (evento.data | date:'MMM') | uppercase }}</span>
+          </div>
+          <div class="event-content">
+            <h3 class="event-title">{{ evento.titulo }}</h3>
+            <p class="event-meta">
+              <span class="time">{{ evento.horario }}</span>
+              <span class="dot" aria-hidden="true">•</span>
+              <span class="place">{{ evento.local }}</span>
+            </p>
+            <a [routerLink]="['/agenda']" class="event-link">Detalhes</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORÁRIOS & LOCAIS -->
+  <section class="section" aria-labelledby="tit-horarios">
+    <div class="container">
+      <h2 id="tit-horarios">Horários & Locais</h2>
+      <div class="schedule-grid">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Missas</h3>
+            <ul class="list">
+              <li><strong>Domingo:</strong> 08h, 10h, 19h</li>
+              <li><strong>Sábado:</strong> 18h (Vigília)</li>
+              <li><strong>Semana:</strong> 07h e 19h (Ter–Sex)</li>
+            </ul>
+            <a routerLink="/missoes" class="card-link">Ver todos os horários</a>
+          </div>
         </div>
-        <div class="evento-conteudo">
-          <h3 class="evento-titulo">{{ evento.titulo }}</h3>
-          <p class="evento-detalhes">
-            <span class="horario">{{ evento.horario }}</span> -
-            <span class="local">{{ evento.local }}</span>
-          </p>
+
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Confissões</h3>
+            <p class="card-text">Terças e quintas, 18h–19h, ou por agendamento na secretaria.</p>
+            <a routerLink="/sacramentos" class="card-link">Sacramentos</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Secretaria Paroquial</h3>
+            <p class="card-text">Seg–Sex: 08h–12h e 14h–18h</p>
+            <a routerLink="/contato" class="card-link">Falar com a secretaria</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="ver-mais">
-      <a routerLink="/agenda" class="btn-secundario">Ver agenda completa</a>
+  </section>
+
+  <!-- SERVIÇOS PASTORAIS -->
+  <section class="section section-soft" aria-labelledby="tit-servicos">
+    <div class="container">
+      <h2 id="tit-servicos">Serviços pastorais</h2>
+      <div class="services-grid">
+        <div class="service">
+          <i class="bi bi-people"></i>
+          <h3>Pastoral da Catequese</h3>
+          <p>Inscrições para catequese infantil, crisma e adultos.</p>
+          <a routerLink="/pastorais/catequese" class="service-link">Inscrever-se</a>
+        </div>
+        <div class="service">
+          <i class="bi bi-music-note-beamed"></i>
+          <h3>Ministério de Música</h3>
+          <p>Participe do coral ou ministério de louvor.</p>
+          <a routerLink="/pastorais/musica" class="service-link">Quero participar</a>
+        </div>
+        <div class="service">
+          <i class="bi bi-bag-heart"></i>
+          <h3>Ação Social</h3>
+          <p>Campanhas solidárias, cestas básicas e visitas.</p>
+          <a routerLink="/acao-social" class="service-link">Ver ações</a>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- DOAÇÕES -->
+  <section class="section" aria-labelledby="tit-doacoes">
+    <div class="container donate">
+      <div>
+        <h2 id="tit-doacoes">Doe & participe da missão</h2>
+        <p class="donate-text">
+          Sua contribuição mantém a paróquia viva e os projetos sociais ativos.
+        </p>
+        <div class="donate-cards">
+          <div class="chip">PIX: 00.000.000/0001-00</div>
+          <div class="chip">Banco X • Ag 0000 • C/C 000000-0</div>
+        </div>
+        <a routerLink="/doar" class="btn btn-primary">Como doar</a>
+      </div>
+      <img src="assets/doacao.jpg" alt="" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- CONTATO & MAPA -->
+  <section class="section section-tonal" aria-labelledby="tit-contato">
+    <div class="container contact">
+      <div>
+        <h2 id="tit-contato">Contato & localização</h2>
+        <ul class="contact-list">
+          <li><i class="bi bi-telephone"></i> (00) 0000-0000</li>
+          <li><i class="bi bi-whatsapp"></i> (00) 9 0000-0000</li>
+          <li><i class="bi bi-envelope"></i> paroquiaexemplo.com</li>
+          <li><i class="bi bi-geo-alt"></i> Rua Exemplo, 123 — Centro</li>
+        </ul>
+        <a routerLink="/contato" class="btn btn-ghost">Falar com a secretaria</a>
+      </div>
+      <div class="map-wrapper" role="img" aria-label="Mapa com a localização da paróquia">
+        <iframe
+          title="Mapa da Paróquia"
+          src="https://www.google.com/maps/embed?pb=!1m18..."
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ SIMPLES -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="brand">
+        <img src="assets/logo-paroquia.svg" alt="Logomarca da Paróquia" />
+        <p>“Ide por todo o mundo e pregai o Evangelho.”</p>
+      </div>
+      <nav aria-label="Links rápidos" class="footer-links">
+        <a routerLink="/sobre">Sobre</a>
+        <a routerLink="/agenda">Agenda</a>
+        <a routerLink="/noticias">Notícias</a>
+        <a routerLink="/contato">Contato</a>
+      </nav>
+      <div class="social">
+        <a href="#" aria-label="Instagram" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="Facebook" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="YouTube" rel="noopener"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+    <div class="copy">©2025 Paróquia Exemplo</div>
+  </footer>
 </main>
